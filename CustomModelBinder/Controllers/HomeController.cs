@@ -28,5 +28,11 @@ namespace CustomModelBinder.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //example : https://localhost:7121/home/AddUser?user=1|ali|66
+        public IActionResult AddUser([ModelBinder(binderType:typeof(UserCustomModelBinder))] User newUser)
+        {
+            return View();
+        }
     }
 }
